@@ -108,34 +108,42 @@ Un compte administrateur est créé automatiquement :
 ```
 mini-projet/
 ├── app/
-│   ├── Http/Controllers/
-│   │   ├── CategoryController.php    # Gestion des catégories
-│   │   ├── DashboardController.php   # Page d'accueil
-│   │   ├── ProductController.php     # Gestion des produits
-│   │   ├── StockController.php       # Mouvements de stock
-│   │   └── SupplierController.php    # Gestion des fournisseurs
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/
+│   │   │   │   └── AuthenticatedSessionController.php  # Login/Logout
+│   │   │   ├── CategoryController.php     # Gestion des catégories
+│   │   │   ├── Controller.php             # Controller de base
+│   │   │   ├── DashboardController.php    # Page d'accueil
+│   │   │   ├── ProductController.php      # Gestion des produits
+│   │   │   ├── StockController.php        # Mouvements de stock
+│   │   │   └── SupplierController.php     # Gestion des fournisseurs
+│   │   └── Requests/Auth/
+│   │       └── LoginRequest.php           # Validation login
 │   └── Models/
-│       ├── Category.php              # Modèle catégorie
-│       ├── Product.php               # Modèle produit
-│       ├── StockMovement.php         # Modèle mouvement
-│       ├── Supplier.php              # Modèle fournisseur
-│       └── User.php                  # Modèle utilisateur
+│       ├── Category.php                   # Modèle catégorie
+│       ├── Product.php                    # Modèle produit
+│       ├── StockMovement.php              # Modèle mouvement
+│       ├── Supplier.php                   # Modèle fournisseur
+│       └── User.php                       # Modèle utilisateur
 ├── database/
-│   ├── migrations/                   # Structure des tables
+│   ├── migrations/                        # Structure des tables
 │   └── seeders/
-│       └── DatabaseSeeder.php        # Données de test
+│       └── DatabaseSeeder.php             # Données de test
 ├── resources/views/
-│   ├── layouts/
-│   │   └── app.blade.php             # Template principal
 │   ├── auth/
-│   │   └── login.blade.php           # Page de connexion
-│   ├── dashboard.blade.php           # Tableau de bord
-│   ├── products/                     # Vues produits
-│   ├── categories/                   # Vues catégories
-│   ├── suppliers/                    # Vues fournisseurs
-│   └── stock/                        # Vues mouvements
+│   │   └── login.blade.php                # Page de connexion
+│   ├── categories/                        # Vues catégories (CRUD)
+│   ├── layouts/
+│   │   └── app.blade.php                  # Template principal
+│   ├── products/                          # Vues produits (CRUD)
+│   ├── stock/                             # Vues mouvements
+│   ├── suppliers/                         # Vues fournisseurs (CRUD)
+│   ├── dashboard.blade.php                # Tableau de bord
+│   └── welcome.blade.php                  # Page d'accueil (redirect)
 └── routes/
-    └── web.php                       # Définition des routes
+    ├── auth.php                           # Routes login/logout
+    └── web.php                            # Routes principales
 ```
 
 ---

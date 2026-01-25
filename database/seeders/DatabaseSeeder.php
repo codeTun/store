@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
+// php artisan db:seed
+
 /*
     Seeder principal
     
@@ -26,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        echo "✅ Compte admin créé (admin@admin.com / password)\n";
+        echo " Compte admin créé (admin@admin.com / password)\n";
 
         // Créer quelques catégories
         $categories = [
@@ -40,7 +42,7 @@ class DatabaseSeeder extends Seeder
             Category::create($cat);
         }
 
-        echo "✅ 4 catégories créées\n";
+        echo " 4 catégories créées\n";
 
         // Créer quelques fournisseurs
         $suppliers = [
@@ -52,7 +54,7 @@ class DatabaseSeeder extends Seeder
             Supplier::create($sup);
         }
 
-        echo "✅ 2 fournisseurs créés\n";
+        echo " 2 fournisseurs créés\n";
 
         // Créer quelques produits
         $products = [
@@ -68,7 +70,7 @@ class DatabaseSeeder extends Seeder
             Product::create($prod);
         }
 
-        echo "✅ 6 produits créés\n";
-        echo "\n🎉 Base de données prête ! Connectez-vous avec admin@admin.com / password\n";
+        echo " 6 produits créés\n";
+        echo "\n Base de données prête ! Connectez-vous avec admin@admin.com / password\n";
     }
 }
