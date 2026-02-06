@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>StockMaster - @yield('title', 'Gestion de Stock')</title>
+    <title>TuniStock - @yield('title', 'Gestion de Stock')</title>
     
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +16,7 @@
             
             <!-- Logo -->
             <a href="{{ route('dashboard') }}" class="text-xl font-bold text-blue-600">
-                StockMaster
+                TuniStock
             </a>
             
             <!-- Menu -->

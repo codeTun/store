@@ -8,7 +8,7 @@ use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
-    Routes de l'application StockMaster
+    Routes de l'application TuniStock
     
     C'est ici qu'on définit toutes les URLs de notre application.
     Chaque route pointe vers un contrôleur qui gère la logique.

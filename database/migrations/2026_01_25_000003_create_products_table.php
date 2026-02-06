@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Créer la table products avec toutes les informations nécessaires
-     * pour gérer efficacement l'inventaire.
+     * Créer la table products avec les informations essentielles
+     * pour gérer l'inventaire.
      */
     public function up(): void
     {
@@ -54,27 +54,6 @@ return new class extends Migration
             // Seuil d'alerte - on notifie quand le stock descend en dessous
             $table->integer('min_quantity')->default(5);
             
-            // Quantité maximale à stocker (capacité de stockage)
-            $table->integer('max_quantity')->nullable();
-            
-            // Unité de mesure (pièce, kg, litre, etc.)
-            $table->string('unit')->default('pièce');
-            
-            // Emplacement dans l'entrepôt (ex: A-12-3)
-            $table->string('location')->nullable();
-            
-            // Code-barres du produit
-            $table->string('barcode')->nullable()->unique();
-            
-            // URL de l'image du produit
-            $table->string('image')->nullable();
-            
-            // Le produit est-il actif/en vente ?
-            $table->boolean('is_active')->default(true);
-            
-            // Notes internes sur ce produit
-            $table->text('notes')->nullable();
-            
             $table->timestamps();
             
             // Index pour améliorer les performances de recherche
@@ -91,4 +70,3 @@ return new class extends Migration
         Schema::dropIfExists('products');
     }
 };
-

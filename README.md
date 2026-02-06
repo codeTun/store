@@ -1,12 +1,12 @@
-# StockMaster - Système de Gestion d'Inventaire
+# TuniStock - Système de Gestion d'Inventaire
 
-Un système de gestion d'inventaire simple et moderne développé avec Laravel et TailwindCSS.
+Un système de gestion d'inventaire simple et moderne développé avec Laravel et TailwindCSS pour le marché tunisien.
 
 ---
 
 ## Aperçu
 
-StockMaster permet de gérer facilement :
+TuniStock permet de gérer facilement :
 - Les **produits** (création, modification, suppression)
 - Les **catégories** pour organiser les produits
 - Les **fournisseurs** avec leurs coordonnées

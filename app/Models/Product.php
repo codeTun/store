@@ -30,13 +30,6 @@ class Product extends Model
         'selling_price',
         'quantity',
         'min_quantity',
-        'max_quantity',
-        'unit',
-        'location',
-        'barcode',
-        'image',
-        'is_active',
-        'notes',
     ];
 
     /**
@@ -47,8 +40,6 @@ class Product extends Model
         'selling_price' => 'decimal:2',
         'quantity' => 'integer',
         'min_quantity' => 'integer',
-        'max_quantity' => 'integer',
-        'is_active' => 'boolean',
     ];
 
     /**
@@ -77,19 +68,10 @@ class Product extends Model
 
     /**
      * Vérifie si le stock est en dessous du seuil minimum.
-     * Utile pour déclencher des alertes automatiques.
      */
     public function isLowStock(): bool
     {
         return $this->quantity <= $this->min_quantity;
-    }
-
-    /**
-     * Vérifie si le produit est en rupture de stock.
-     */
-    public function isOutOfStock(): bool
-    {
-        return $this->quantity <= 0;
     }
 
     /**
@@ -113,43 +95,11 @@ class Product extends Model
     }
 
     /**
-     * Retourne le statut du stock sous forme de texte.
-     */
-    public function getStockStatusAttribute(): string
-    {
-        if ($this->isOutOfStock()) {
-            return 'out_of_stock';
-        }
-        
-        if ($this->isLowStock()) {
-            return 'low_stock';
-        }
-        
-        return 'in_stock';
-    }
-
-    /**
-     * Scope pour filtrer les produits actifs.
-     */
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', true);
-    }
-
-    /**
      * Scope pour filtrer les produits avec stock faible.
      */
     public function scopeLowStock($query)
     {
         return $query->whereColumn('quantity', '<=', 'min_quantity');
-    }
-
-    /**
-     * Scope pour filtrer les produits en rupture.
-     */
-    public function scopeOutOfStock($query)
-    {
-        return $query->where('quantity', '<=', 0);
     }
 
     /**
@@ -164,4 +114,3 @@ class Product extends Model
         return "{$prefix}-{$timestamp}-{$random}";
     }
 }
-
